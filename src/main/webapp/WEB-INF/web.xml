@@ -7,8 +7,32 @@
         <servlet-name>helloServlet</servlet-name>
         <servlet-class>com.ceri.servketsessions.HelloServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ageCodePostalServlet</servlet-name>
+        <servlet-class>com.ceri.servketsessions.AgeCodePostalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>displayInfoServlet</servlet-name>
+        <servlet-class>com.ceri.servketsessions.DisplayInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>finSessionServlet</servlet-name>
+        <servlet-class>com.ceri.servketsessions.FinSessionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>helloServlet</servlet-name>
         <url-pattern>/hello-servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ageCodePostalServlet</servlet-name>
+        <url-pattern>/second-servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>displayInfoServlet</servlet-name>
+        <url-pattern>/troisieme-servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>finSessionServlet</servlet-name>
+        <url-pattern>/finSession-servlet</url-pattern>
     </servlet-mapping>
 </web-app>
