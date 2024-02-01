@@ -13,7 +13,8 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         //formulaire avec un nom
-        out.println("<form method='post' action='second-servlet'>");
+        //question 2 : Attention il faut desactiver les cookies du navigateur pour que cela fonctionne
+        out.println("<form method='post' action=" + response.encodeURL("second-servlet") + ">");
         out.println("<label for='nom'>Nom</label>");
         out.println("<input type='text' name='nom' />");
         out.println("<input type='submit' value='Envoyer' />");
