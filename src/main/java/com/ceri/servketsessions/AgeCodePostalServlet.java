@@ -8,6 +8,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class AgeCodePostalServlet extends HttpServlet {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        //verifier la presence de la session
+        //recuperation du nom
+        HttpSession session = request.getSession();
+        //voir si nom existe dans session
+        if (session.getAttribute("nom") == null) {
+            //si oui, on recupere le nom depuis la session
+            response.sendRedirect("hello-servlet");
+        }
+        else {
+            out.println("<h1>Bonjour depuis session : " + session.getAttribute("nom") + "</h1>");
+        }
+    }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
@@ -25,6 +42,10 @@ public class AgeCodePostalServlet extends HttpServlet {
             nom = (String) session.getAttribute("nom");
         }
         else {
+            if(nom == null) {
+                //on redirige vers la premiere servlet
+                response.sendRedirect("hello-servlet");
+            }
             session.setAttribute("nom", nom);
         }
         String nomSession = (String) session.getAttribute("nom");
